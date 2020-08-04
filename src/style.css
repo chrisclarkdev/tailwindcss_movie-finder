@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.shadow-huge {
+  box-shadow:  2px 2px 15px rgb(64, 63, 63);
+}

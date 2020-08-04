@@ -1,3 +1,2 @@
 # tailwindcss_movie-finder
-
-# Building tailwind css maovie site 
+Building tailwind css movie site 

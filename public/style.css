@@ -17881,6 +17881,18 @@ video {
   box-shadow:  2px 2px 15px rgb(64, 63, 63);
 }
 
+.movie-title{
+  grid-column: span 2 / span 2;
+  text-align: center;
+  --text-opacity: 1;
+  color: #ecc94b;
+  color: rgba(236, 201, 75, var(--text-opacity));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

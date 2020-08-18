@@ -5,3 +5,7 @@
 .shadow-huge {
   box-shadow:  2px 2px 15px rgb(64, 63, 63);
 }
+
+.movie-title{
+  @apply col-span-2 text-center text-yellow-500 px-2 py-5
+}

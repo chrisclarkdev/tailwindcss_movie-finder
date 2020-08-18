@@ -29,30 +29,33 @@ function getMovie(id) {
     yearRelease.classList.add('year');
     year = yearRelease.append(`Year released ${year[0]}`);
 
-    
-  
-  //  the Title h2
     let mDiv = document.createElement('div');
-    mDiv.classList.add('movie-box')
+    mDiv.classList.add('movie-box', 'md:flex')
+
+  
+    const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+    movie_img = document.createElement('img');
+    movie_img.classList.add('md:w-64', 'lg:w-64', 'px-2', 'py-5','rounded-md');
+    movie_img.src = imgurl;
+    mDiv.appendChild(movie_img);
+
+    
+
+
+    let movie_summary_div = document.createElement('div');
+    movie_summary_div.classList.add('px-2', 'py-5')
+
+    //  the Title h2
+
     let moviecontainer = document.querySelector('.movie-container');
     let movieTitle = document.createElement('h2');
     
-    movieTitle.classList.add('movie-page-title');
+    movieTitle.classList.add('col-span-2','px-2', 'py-5', 'font-bold', 'text-xl','text-center');
     movieTitleOriginal = document.createTextNode(movie.original_title );
     movieTitle.appendChild(movieTitleOriginal)
-    mDiv.appendChild(movieTitle);
+    movie_summary_div.appendChild(movieTitle);
 
     console.log(movieTitleOriginal)
-    
-   
-    
-    const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-    movie_img = document.createElement('img');
-    movie_img.classList.add('lg:w-64');
-    movie_img.src = imgurl;
-    mDiv.appendChild(movie_img);
-    let movie_summary_div = document.createElement('div');
-    movie_summary_div.classList.add('movie-summary-container')
     let movieSummary = document.createTextNode(movie.overview);
     // movie_summary_div.appendChild(summary);
     let summary = document.createElement('p');
@@ -160,7 +163,6 @@ function getMovie(id) {
   function getVideo(id) {
    const videoUrl = `https://api.themoviedb.org/3/movie/${id.id}/videos?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US`;
    fetch(videoUrl)
-   console.log("hello World!!", id)
    .then((response) => {
      return response.json();
    }).catch((err) => alert(err))

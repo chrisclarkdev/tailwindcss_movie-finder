@@ -9,6 +9,3 @@
 .movie-title{
   @apply col-span-2 text-center text-yellow-500 px-2 py-5
 }
-.hello {
-  @apply col-span-2
-}

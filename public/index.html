@@ -2,40 +2,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/public/style.css">
   <title>Tailwindcss - Movie finder</title>
 </head>
 <body class=" w-auto  md:w-md">
   <div class="container mx-auto">
-    <nav class="md:w-full lg:bg-green-700 md:bg-blue-700 bg-red-700 px-3 py-3 text-gray-300 rounded">
-      <ul class="flex space-x-12">
-        <li>Home</li>
-        <li>Movies</li>
-        <li>Actors</li>
-        <li>Lastest Movies</li>
-      </ul>
-    </nav>
-
     <header>
-      <div class="px-5 py-10  content-around flex">
-        <input id="input" class=" w-full px-2 py-2 shadow border-2 rounded-lg focus:outline-none focus:shadow-outline" type="text" id="search" placeholder="search movie or people">
+      <div class="px-5 py-10 content-around flex">
+        <input id="input" class="w-full px-2 py-2 shadow border-2 rounded-lg focus:outline-none focus:shadow-outline" type="text" id="search" placeholder="search movie or people">
         <button id="searchBtn" class="ml-2 bg-red-700 px-6 py-2 rounded-lg text-white border-2 border-red-900 hover:border-red-400 hover:bg-red-600">Search</button>
       </div>
       
     </header>
     <div class="main m-5  grid  cols-1 md:gap-4 md:grid-cols-2 lg:grid-cols-3">
-    
+      <!-- Here goes the content -->
     </div>
       </div>
     </main>
-    <div class="m-5 bg-red-700 text-white mt-2 p-2 flex rounded-md justify-center items-center">
-      <svg class="w-8" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><p>122mins </p>
-      <svg class="ml-4 w-8"fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg><p class="">74%</p>
-      <svg class="w-8 ml-4 cursor-pointer "fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-    </div>
     <div>
   </div>
+  <!-- Trigger/Open The Modal -->
+<!-- <button id="myBtn">Open Modal</button> -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
   </div>
+
+</div>
+<!-- </div> -->
   <script src="/public/app.js"></script>
 </body>
 </html>

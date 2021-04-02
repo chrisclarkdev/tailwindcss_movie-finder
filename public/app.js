@@ -13,10 +13,7 @@ function removeAllChildNodes(parent) {
 function getSearch() {
   const container = document.querySelector('.main')
   removeAllChildNodes(container);
-
-
   search = document.querySelector('#input').value;
-   
   fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${search}&page=1&include_adult=false`)
   .then((response) => {
     return response.json();
@@ -42,7 +39,7 @@ function getmovieCard() {
     let img = document.createElement('img');
     
     if (imgurl == "https://image.tmdb.org/t/p/w500/null"){
-      img.src = "/public/images/coming-soon.jpg";
+      img.src = "/public/images/comingsoon.png";
     } else {
       img.src = imgurl;
     }
@@ -104,6 +101,7 @@ function getVideo(movie) {
   }).catch((err) => console.log(err))
   .then((video) => {
     const videoId = video.results[0].key;
+    console.log(videoUrl)
     
     if (videoId == undefined){
       document.body.appendChild(modal).innerHTML = "No Video Available";
@@ -122,7 +120,10 @@ function getVideo(movie) {
     
     frame.src = youtube;
     video_container.appendChild(frame);
-    content = document.querySelector('.modal-content')
+    content = document.querySelector('.modal-content');
+    const youtubeText = document.createTextNode('youtube video here')
+    content.appendChild(youtubeText)
+
     content.appendChild(video_container)
     document.body.appendChild(modal);
   }
@@ -137,6 +138,7 @@ let span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
   modal.style.display = "none";
   frame.remove()
+  content.appendChild(youtubeText).remove()
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -146,4 +148,7 @@ window.onclick = function(event) {
 }
 
 
- 
+ function movieSelected(movie) {
+   console.log(videoUrl)
+
+ }

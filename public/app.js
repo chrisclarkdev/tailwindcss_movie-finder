@@ -96,7 +96,6 @@ function getmovieCard() {
   })
  
 }
-
 let frame = document.createElement('IFRAME');
 function getVideo(movie) {
   const videoUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US`;
@@ -149,10 +148,6 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
-// function movieSelected(movie) {
- 
-// }
 
 
  

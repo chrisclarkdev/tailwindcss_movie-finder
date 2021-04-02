@@ -84,7 +84,6 @@ function getmovieCard() {
     movieId = movie.id;
     // console.log(movieId)
     title.appendChild(linkTag);
-
     linkTag.innerHTML = movieTitle.data.length < 22 ? `${movieTitle.data}` : `${movieTitle.data.fontsize(4.5)}`;
     // linkTag.innerHTML = movieTitle.data;
     moviediv.addEventListener('click', ()=> {movieSelected(movie)});
@@ -93,16 +92,7 @@ function getmovieCard() {
       modal.style.display = "block";
       getVideo(movie)
     }
-    document.querySelector('.main').appendChild(moviediv);
-
-  
-   // disable button //
-    // btn = document.querySelector('#searchBtn');
-    // if(moviediv.innerHTML !== ""){
-    //   btn.setAttribute('disabled', true);
-    // } else {
-    //   btn.setAttribute('disabled', false)
-    // }
+    document.querySelector('.main').appendChild(moviediv)
   })
  
 }

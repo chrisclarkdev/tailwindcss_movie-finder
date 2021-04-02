@@ -22,7 +22,6 @@ function getSearch() {
     return response.json();
   }).catch((err) => alert(err, "I have no idea what's going on!!!"))
   .then((movies) => {
-    // console.log(movies.results);
  movieCard =  movies.results.map(movie => {
     return movie;
   });
@@ -82,7 +81,7 @@ function getmovieCard() {
     linkTag.classList.add('link');
     linkTag.setAttribute('href', ' movie_page.html');
     movieId = movie.id;
-    // console.log(movieId)
+    
     title.appendChild(linkTag);
     linkTag.innerHTML = movieTitle.data.length < 22 ? `${movieTitle.data}` : `${movieTitle.data.fontsize(4.5)}`;
     // linkTag.innerHTML = movieTitle.data;
@@ -102,16 +101,13 @@ function getVideo(movie) {
   fetch(videoUrl)
   .then((response) => {
     return response.json();
-  }).catch((err) => alert(err))
+  }).catch((err) => console.log(err))
   .then((video) => {
     const videoId = video.results[0].key;
     
     if (videoId == undefined){
-      
-      console.log("no video")
       document.body.appendChild(modal).innerHTML = "No Video Available";
     } else {
-    console.log(videoId)
     const youtube = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=1";
     const video_container = document.createElement('div');
     video_container.classList.add('youtube', 'mx-auto' ,'px-4', 'flex', 'justify-center' )

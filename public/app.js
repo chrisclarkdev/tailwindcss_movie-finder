@@ -49,8 +49,6 @@ function getmovieCard() {
     let flexEl = document.createElement('div')
     flexEl.classList.add('flex', 'justify-around', 'bg-grey-300','p-4')
     moviediv.appendChild(flexEl)
-    // document.querySelector('.flex').appendChild(moviediv);
-
     let releaseDate = document.createTextNode(movie.release_date);
     let year = releaseDate.data.split('-');
     let yearRelease = document.createElement('p');
@@ -97,15 +95,28 @@ function getVideo(movie) {
   const videoUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US`;
   fetch(videoUrl)
   .then((response) => {
+    // console.log(response.json())
     return response.json();
-  }).catch((err) => console.log(err))
+  })
+
+  // .catch((err) => console.log(err))
   .then((video) => {
-    const videoId = video.results[0].key;
-    console.log(videoUrl)
-    
-    if (videoId == undefined){
-      document.body.appendChild(modal).innerHTML = "No Video Available";
+    if (video.results.length === 0 ){
+      console.log('help')
+      console.log(video.results.length)
+      let alertbox = document.createElement('div');
+      messageTitle = document.createElement('h1');
+      messageTitle.classList.add('text-center', 'text-4xl', 'mt-16')
+      alertbox.classList.add('alertbox');
+      let alertMessage = document.createTextNode(`Sorry, no video available for this title`)
+      content = document.querySelector('.modal-content');
+      modal.appendChild(content)
+      content.appendChild(alertbox)
+      alertbox.appendChild(messageTitle)
+      messageTitle.appendChild(alertMessage)
+      document.body.appendChild(modal);
     } else {
+    const videoId = video.results[0].key;
     const youtube = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=1";
     const video_container = document.createElement('div');
     video_container.classList.add('youtube', 'mx-auto' ,'px-4', 'flex', 'justify-center' )
@@ -117,19 +128,15 @@ function getVideo(movie) {
      frame.setAttribute('width', `${youtubeWidth - 38}px`);
      frame.setAttribute('height', youtubeWidth/1.77777 +'px');
     }
-    
     frame.src = youtube;
     video_container.appendChild(frame);
     content = document.querySelector('.modal-content');
-    const youtubeText = document.createTextNode('youtube video here')
-    content.appendChild(youtubeText)
-
     content.appendChild(video_container)
-    document.body.appendChild(modal);
+    document.body.appendChild(modal)
   }
   })
 }
- let modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal");
 let videoCon = document.querySelector('.modal-content')
 // Get the <span> element that closes the modal
 let span = document.getElementsByClassName("close")[0];
@@ -138,17 +145,21 @@ let span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
   modal.style.display = "none";
   frame.remove()
-  content.appendChild(youtubeText).remove()
+  mdiv = document.querySelector('.youtube')
+  alertbox = document.querySelector('.alertbox')
+  alertbox.parentNode.removeChild(alertbox);
+  mdiv.parentNode.removeChild(mdiv);
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    alertbox = document.querySelector('.alertbox')
+    mdiv = document.querySelector('.youtube')
+    alertbox.parentNode.removeChild(alertbox);
+    mdiv.parentNode.removeChild(mdiv);
   }
 }
-
-
  function movieSelected(movie) {
-   console.log(videoUrl)
-
+   console.log(movie)
  }

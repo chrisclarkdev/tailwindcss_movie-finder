@@ -175,6 +175,8 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    console.log(frame)
+    // frame.remove()
     alertbox = document.querySelector('.alertbox')
     mdiv = document.querySelector('.youtube')
     alertbox.parentNode.removeChild(alertbox);

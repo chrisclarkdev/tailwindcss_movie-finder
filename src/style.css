@@ -2,27 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.shadow-huge {
-  box-shadow:  2px 2px 15px rgb(64, 63, 63);
-}
-
-.movie-title_red{
-  @apply col-span-2 text-center font-bold px-2 py-5
-}
-
-.hover-shadow:hover {
-  @apply box-shadow:  2px 2px 15px rgb(64, 63, 63);
-}
-
-/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-  /* width: 100%; Full width */
-  /* height: 100%; Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -34,7 +19,7 @@
   margin: 5% auto; /* 15% from the top and centered */
   padding: 10px;
   border: 1px solid #888;
-  /* width: 100%; Could be more or less, depending on screen size */
+  width: 100%; /*Could be more or less, depending on screen size */
   min-height: 300px
 }
 

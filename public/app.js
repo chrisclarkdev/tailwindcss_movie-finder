@@ -1,6 +1,7 @@
 btn = document.querySelector('#searchBtn');
 input = document.querySelector('#input');
 btn.addEventListener('click', getSearch);
+const api_key = 'a876e7500012d962d40cf6ba7bd19019';
 // btn.addEventListener('hover', refreshPage)
 
 
@@ -10,11 +11,31 @@ function removeAllChildNodes(parent) {
   }
 }
 
-function getSearch() {
-  const container = document.querySelector('.main')
-  removeAllChildNodes(container);
+window.onload = () => {
+  const main = document.querySelector('.main')
+  removeAllChildNodes(main);
   search = document.querySelector('#input').value;
-  fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${search}&page=1&include_adult=false`)
+  fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&page=1`)
+  .then((response) => {
+    return response.json();
+  }).catch((err) => alert(err, "I have no idea what's going on!!!"))
+  .then((movies) => {
+ movieCard =  movies.results.map(movie => {
+    return movie;
+  });
+  getmovieCard()
+});
+}
+
+// window.onload = () => {
+//   console.log('page is fully loaded');
+// };
+
+function getSearch() {
+  const main = document.querySelector('.main')
+  removeAllChildNodes(main);
+  search = document.querySelector('#input').value;
+  fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${search}&page=1&include_adult=false`)
   .then((response) => {
     return response.json();
   }).catch((err) => alert(err, "I have no idea what's going on!!!"))

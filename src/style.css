@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* .bigShadow{
+  @apply box-shadow: 5px 5px 15px #444;
+} */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -15,12 +18,12 @@
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  /* background-color: #fefefe;
   margin: 5% auto; /* 15% from the top and centered */
-  padding: 10px;
+  /* padding: 10px;
   border: 1px solid #888;
   width: 100%; /*Could be more or less, depending on screen size */
-  min-height: 300px
+  /* min-height: 300px */
 }
 
 /* The Close Button */

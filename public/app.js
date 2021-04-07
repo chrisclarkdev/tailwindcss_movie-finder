@@ -49,7 +49,8 @@ function getSearch() {
 function getmovieCard() {
   movieCard.forEach( movie => {
     let moviediv = document.createElement('div');
-    moviediv.classList.add('movie-container', 'hover-shadow', 'md:bg-white', 'md:w-72' ,'lg:w-full', 'lg:justify-center', 'rounded');
+    moviediv.classList.add('movie-container', 'hover:shadow-3xl', 'md:bg-white', 'md:w-72' ,'lg:w-full', 'lg:justify-center', 'rounded');
+    moviediv.setAttribute('data-aos', 'fade-in')
     
     let title = document.createElement('h1');
     let movieTitle = document.createTextNode(movie.title);
@@ -58,8 +59,9 @@ function getmovieCard() {
 
     const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     let img = document.createElement('img');
+    img.classList.add('filter', 'drop-shadow-lg')
     
-    if (imgurl == "https://image.tmdb.org/t/p/w500/null"){
+    if (imgurl === "https://image.tmdb.org/t/p/w500/null"){
       img.src = "/public/images/comingsoon.png";
     } else {
       img.src = imgurl;
@@ -95,7 +97,7 @@ function getmovieCard() {
 
     let linkTag = document.createElement('a');
     linkTag.classList.add('link');
-    linkTag.setAttribute('href', ' movie_page.html');
+    // linkTag.setAttribute('href', ' movie_page.html');
     movieId = movie.id;
     
     title.appendChild(linkTag);
@@ -127,7 +129,7 @@ function getVideo(movie) {
       console.log(video.results.length)
       let alertbox = document.createElement('div');
       messageTitle = document.createElement('h1');
-      messageTitle.classList.add('text-center', 'text-4xl', 'mt-16')
+      messageTitle.classList.add('text-center', 'text-4xl', 'mt-12', 'text-white')
       alertbox.classList.add('alertbox');
       let alertMessage = document.createTextNode(`Sorry, no video available for this title`)
       content = document.querySelector('.modal-content');
@@ -138,7 +140,7 @@ function getVideo(movie) {
       document.body.appendChild(modal);
     } else {
     const videoId = video.results[0].key;
-    const youtube = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=1";
+    const youtube = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=0";
     const video_container = document.createElement('div');
     video_container.classList.add('youtube', 'mx-auto' ,'px-4', 'flex', 'justify-center' )
     youtubeWidth = window.innerWidth;

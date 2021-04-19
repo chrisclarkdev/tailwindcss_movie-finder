@@ -27,10 +27,6 @@ window.onload = () => {
 });
 }
 
-// window.onload = () => {
-//   console.log('page is fully loaded');
-// };
-
 function getSearch() {
   const main = document.querySelector('.main')
   removeAllChildNodes(main);
@@ -67,6 +63,21 @@ function getmovieCard() {
       img.src = imgurl;
     }
     moviediv.appendChild(img);
+    
+    
+    // test for additionally info
+
+    let movieInfo = document.createElement('div');
+    // movieInfo.classList('flex')
+    let testText = document.createTextNode(movie.overview)
+    console.log(movie.overview)
+
+    movieInfo.appendChild(testText)
+
+    moviediv.appendChild(movieInfo)
+
+
+
 
     // ADD A FLEX DIV
     let flexEl = document.createElement('div')
